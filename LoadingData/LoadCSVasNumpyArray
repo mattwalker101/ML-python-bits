@@ -1,3 +1,5 @@
+# import CSV using standard library
+# then create NumPy array 
 
 import csv
 import numpy
@@ -6,4 +8,13 @@ raw_data = open(filename, 'rb')
 reader = csv.reader(raw_data, delimiter=',', quoting=csv.QUOTE_NONE)
 x = list(reader)
 data = numpy.array(x).astype('float')
+print(data.shape)
+
+
+
+# Load CSV using NumPy.loadtxt (assumes no header row, and data has same type)
+import numpy
+filename = 'pima-indians-diabetes.data.csv' 
+raw_data = open(filename, 'rb')
+data = numpy.loadtxt(raw_data, delimiter=",") 
 print(data.shape)
