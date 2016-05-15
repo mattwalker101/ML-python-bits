@@ -7,3 +7,9 @@ pandas.set_option('display.width', 100)
 pandas.set_option('precision', 3)
 correlations = data.corr(method='pearson')
 print(correlations)
+
+# The most common method for calculating correlation is Pearson’s Correlation Coefficient, 
+# that assumes a normal distribution of the attributes involved. A correlation of -1 or 1 
+# shows a full negative or positive correlation respectively. Whereas a value of 0 shows 
+# no correlation at all. Some machine learning algorithms like linear and logistic regression 
+# can suffer poor performance if there are highly correlated attributes in your dataset.
