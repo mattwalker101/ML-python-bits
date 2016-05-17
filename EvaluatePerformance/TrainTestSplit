@@ -1,0 +1,24 @@
+# This algorithm evaluation technique is very fast. It is ideal for large datasets (millions of records) where there is strong 
+# evidence that both splits of the data are representative of the underlying problem. Because of the speed, it is useful to 
+# use this approach when the algorithm you are investigating is slow to train. A downside of this technique is that it can 
+# have a high variance. This means that differences in the training and test dataset can result in meaningful differences 
+# in the estimate of accuracy. In the example below we split the Pima Indians dataset into 67%/33% splits for training and 
+# test and evaluate the accuracy of a Logistic Regression model.
+
+# Evaluate using a train and a test set
+import pandas
+from sklearn import cross_validation
+from sklearn.linear_model import LogisticRegression
+url = "https://goo.gl/vhm1eU"
+names = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class'] dataframe = pandas.read_csv(url, names=names)
+array = dataframe.values
+X = array[:,0:8]
+Y = array[:,8]
+test_size = 0.33
+seed = 7
+X_train, X_test, Y_train, Y_test = cross_validation.train_test_split(X, Y,
+    test_size=test_size, random_state=seed)
+model = LogisticRegression()
+model.fit(X_train, Y_train)
+result = model.score(X_test, Y_test)
+print("Accuracy: %.3f%%") % (result*100.0)
