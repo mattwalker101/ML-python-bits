@@ -1,3 +1,6 @@
+# The example below uses the chi-squared (chi2) statistical test for non-negative features 
+# to select 4 of the best features from the Pima Indians onset of diabetes dataset.
+
 # Feature Extraction with Univariate Statistical Tests (Chi-squared for classification)
 import pandas
 import numpy
