@@ -1,0 +1,26 @@
+# Principal Component Analysis (or PCA) uses linear algebra to transform the dataset 
+# into a compressed form. Generally this is called a data reduction technique. A property 
+# of PCA is that you can choose the number of dimensions or principal components in the 
+# transformed result. In the example below, we use PCA and select 3 principal components.
+
+
+# Feature Extraction with PCA
+import numpy
+from pandas import read_csv
+from sklearn.decomposition import PCA
+
+# load data
+url = "https://goo.gl/vhm1eU"
+names = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class'] 
+dataframe = read_csv(url, names=names)
+array = dataframe.values
+X = array[:,0:8]
+Y = array[:,8]
+
+# feature extraction
+pca = PCA(n_components=3)
+fit = pca.fit(X)
+
+# summarize components
+print("Explained Variance: %s") % fit.explained_variance_ratio_
+print(fit.components_)
