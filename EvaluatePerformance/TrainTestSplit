@@ -22,3 +22,10 @@ model = LogisticRegression()
 model.fit(X_train, Y_train)
 result = model.score(X_test, Y_test)
 print("Accuracy: %.3f%%") % (result*100.0)
+
+# We can see that the estimated accuracy for the model was approximately 75%. Note that in addition to specifying the size 
+# of the split, we also specify the random seed. Because the split of the data is random, we want to ensure that the results 
+# are reproducible. By specifying the random seed we ensure that we get the same random numbers each time we run the code and 
+# in turn the same split of data. This is important if we want to compare this result to the estimated accuracy of another 
+# machine learning algorithm or the same algorithm with a different configuration. To ensure the comparison was 
+# apples-for-apples, we must ensure that they are trained and tested on exactly the same data.
