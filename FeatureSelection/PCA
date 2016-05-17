@@ -2,7 +2,7 @@
 # into a compressed form. Generally this is called a data reduction technique. A property 
 # of PCA is that you can choose the number of dimensions or principal components in the 
 # transformed result. In the example below, we use PCA and select 3 principal components.
-
+# http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html
 
 # Feature Extraction with PCA
 import numpy
