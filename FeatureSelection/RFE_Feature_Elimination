@@ -2,6 +2,7 @@
 # building a model on those attributes that remain. It uses the model accuracy to identify which
 # attributes (and combination of attributes) contribute the most to predicting the target 
 # attribute. The example below uses RFE with the logistic regression algorithm to select the top 3 features. 
+# http://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFE.html# sklearn.feature_selection.RFE
 
 # Feature Extraction with RFE
 from pandas import read_csv
