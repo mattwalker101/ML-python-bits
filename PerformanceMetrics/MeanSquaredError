@@ -1,0 +1,28 @@
+# The Mean Squared Error (or MSE) is much like the mean absolute error in that it provides a 
+# gross idea of the magnitude of error. Taking the square root of the mean squared error 
+# converts the units back to the original units of the output variable and can be meaningful 
+# for description and presentation. This is called the Root Mean Squared Error (or RMSE). 
+# The example below provides a demonstration of calculating mean squared error.
+# This metric too is inverted so that the results are increasing. Remember to take the 
+# absolute value before taking the square root if you are interested in calculating the RMSE.
+
+
+# Cross Validation Regression MSE
+import pandas
+from sklearn import cross_validation
+from sklearn.linear_model import LinearRegression
+url = "https://goo.gl/sXleFv"
+names = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO',
+'B', 'LSTAT', 'MEDV']
+dataframe = pandas.read_csv(url, delim_whitespace=True, names=names)
+array = dataframe.values
+X = array[:,0:13]
+Y = array[:,13]
+num_folds = 10
+num_instances = len(X)
+seed = 7
+kfold = cross_validation.KFold(n=num_instances, n_folds=num_folds, random_state=seed) 
+model = LinearRegression()
+scoring = 'mean_squared_error'
+results = cross_validation.cross_val_score(model, X, Y, cv=kfold, scoring=scoring) 
+print("MSE: %.3f (%.3f)") % (results.mean(), results.std())
